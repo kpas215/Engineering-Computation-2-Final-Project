@@ -1,3 +1,20 @@
+'''
+Name: Mason Troy Ahner
+Date: 11/23/2025
+Sources: Lab 04 (from Comp II at temple university)
+
+This file is used to create and modify nodes. designed to be inherited in other data structures such as.
+linkedlists
+hashtables
+trees
+graphs
+
+Some slight modification or polymorphism may be required.
+
+
+'''
+
+
 class node:
         def __init__(self,data=None,next=None):  #used to create nodes
             self.__data = data #the data of the current node
@@ -15,4 +32,14 @@ class node:
         def get_data(self):
               return self.__data
               
+class doublenode(node):
+        def __init__(self, data=None, next=None, previous=None):
+            super().__init__(data, next)
+            self.__previous = previous #adding a previous node
         
+        def set_previous(self, previous: "doublenode"):
+              self.__previous = previous
+
+        def get_previous(self):
+              return self.__previous
+    
