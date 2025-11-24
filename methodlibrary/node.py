@@ -20,7 +20,7 @@ class node:
             self.__data = data #the data of the current node
             self.__next = next #the pointer to the next node
 
-        def set_next(self,next: "node"):
+        def set_next(self,next: "node | None"):
               self.__next = next #set the current node to point to the "next" node (specified by the user)
 
         def set_data(self, data):
@@ -37,7 +37,7 @@ class doublenode(node):
             super().__init__(data, next)
             self.__previous = previous #adding a previous node
         
-        def set_previous(self, previous: "doublenode"):
+        def set_previous(self, previous: "doublenode | None"):
               self.__previous = previous
 
         def get_previous(self):
