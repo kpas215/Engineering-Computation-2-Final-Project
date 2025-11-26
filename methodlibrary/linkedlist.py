@@ -22,6 +22,9 @@ class linkedlist:
         #if the firstvalue was specified on init, then push to front
         if firstvalue is not None:
             self.push_head(firstvalue)
+
+    def __len__(self): #used to determine how long the linked list is
+        return self.__n
     
 
     def push_head(self, value):
