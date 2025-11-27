@@ -66,7 +66,7 @@ class hashtable:
         return self._buckets[self._hashfunction(value)].contains(value)
     
 class indexhash(hashtable): #an index based hashtable. You hash by a value, and store its array index in the table,
-    #you can get the index back using a get(value) function for O(n) lookup time
+    #you can get the index back using a get(value) function for an ideal O(1) lookup time
 
     def __init__(self):
         super().__init__()
