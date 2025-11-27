@@ -202,6 +202,15 @@ class linkedlist:
         #if we iterated throughout the entire list and havent returned a value yet, then we know its not in there, raise an error.
 
         raise ValueError("linkedlist: attempted remove on value that does not exist in dataset")
+    
+    def get_head(self): #implenting so we can manually traverse linked lists in other implementations ie hash
+        return self.__head
+    
+    def __iter__(self): #adding iteration support to linked list. thank you chat!
+        current = self.__head
+        while current is not None:
+            yield current.get_data()
+            current = current.get_next()
 
         
 
