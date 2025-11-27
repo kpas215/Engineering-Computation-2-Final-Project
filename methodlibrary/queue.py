@@ -8,9 +8,10 @@ This is a queue, and a child(priority queue). Used with the intention to be impl
 
 """
 from linkedlist import linkedlist
-#need to a heap implementation in the methodlibrary
+#need heap implementation in the methodlibrary to create priority queue for O(logn) insertion and pops
+from heap import maxheap
 
-class queue:
+class queue: 
     def __init__(self):
         self.__ll = linkedlist()
         #no need to define self.__n because we can just do len(self.__ll)
@@ -29,16 +30,20 @@ class queue:
 
 class priorityqueue(queue):
     def __init__(self):
-        raise NotImplementedError("priorityqueue: __init__ not implemented!")
+        self.__heap = maxheap() #the queue should be a maxheap
 
     def enqueue(self,entry):
-        raise NotImplementedError("priorityqueue:enqueue(entry) not implemented!")
+        self.__heap.push(entry) #push the entry into the maxheap
     
     def dequeue(self):
-        raise NotImplementedError("priorityqueue: dequeue() not implemented!")
+        #make sure that the heap is not empty
+        if self.__heap.isempty():
+            raise IndexError("priorityqueue: pop() attempted on empty queue")
+        
+        return self.__heap.pop() #pop the greatest entry into the maxheap
     
     def __len__(self):
-        raise NotImplementedError("priorityqueue: __len__ not implemented!")
+        return len(self.__heap) #the len of the heap has been established so that the number of entries is the length
     
     def isempty(self):
-        raise NotImplementedError("priorityqueue: isempty() not implemented!")
+        return self.__heap.isempty() #heap has an isempty() method. If the heap is empty, then the priority queue is empty.
