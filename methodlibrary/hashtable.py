@@ -69,6 +69,12 @@ class hashtable:
         #see if the value exists
         return self._buckets[self._hashfunction(value)].contains(value)
     
+    def __len__(self): #used to determine how many entries are in the hashtable
+        return self._n
+    
+    def isempty(self):
+        return (self._n == 0)
+    
 class indexhash(hashtable): #an index based hashtable. You hash by a value, and store its array index in the table,
     #you can get the index back using a get(value) function for an ideal O(1) lookup time
 
@@ -102,6 +108,8 @@ class indexhash(hashtable): #an index based hashtable. You hash by a value, and 
         self._n += 1
         return
     
+    
+
     def get(self,value): #new method for indexhash. hashes by value and then gets the index, then we manually traverse the linked list
         #until we find a node that contains a pair of the value we are looking for. finally, we get the index for that pair and return it
 
