@@ -8,14 +8,12 @@ This is a queue, and a child(priority queue). Used with the intention to be impl
 
 """
 from linkedlist import linkedlist
-#need to a heap implementation in the methodlibrary
 
-class queue:
+class Queue:  # Changed to capital Q
     def __init__(self):
         self.__ll = linkedlist()
-        #no need to define self.__n because we can just do len(self.__ll)
     
-    def enqueue(self,entry):
+    def enqueue(self, entry):
         self.__ll.push_tail(entry)
 
     def dequeue(self):
@@ -24,14 +22,17 @@ class queue:
     def __len__(self):
         return len(self.__ll)
     
-    def isempty(self):
+    def is_empty(self):  # Added underscore version for consistency
+        return self.__ll.isempty()
+    
+    def isempty(self):  # Keep original for compatibility
         return self.__ll.isempty()
 
-class priorityqueue(queue):
+class priorityqueue(Queue):
     def __init__(self):
         raise NotImplementedError("priorityqueue: __init__ not implemented!")
 
-    def enqueue(self,entry):
+    def enqueue(self, entry):
         raise NotImplementedError("priorityqueue:enqueue(entry) not implemented!")
     
     def dequeue(self):
