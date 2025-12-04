@@ -11,12 +11,10 @@ Sources:
     IMDB dataset (movies_metadata.csv, cleaned_actors.csv)
 '''
 
-import sys
-sys.path.append('../src')
 
 from hash_map import HashMap
-from movie import Movie
-from actor import Actor
+from src.movie import Movie
+from src.actor import Actor 
 
 class DataParser:
     
